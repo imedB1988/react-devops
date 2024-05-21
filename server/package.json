@@ -10,12 +10,12 @@
     },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imedB1988/react-devops.git"
+    "url": "git+https://github.com/imedB1988/react_devops.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/imedB1988/react-devops/issues"
+    "url": "https://github.com/imedB1988/react_devops/issues"
   },
   "homepage": "https://github.com/imedB1988/react-devops#readme",
   "dependencies": {
