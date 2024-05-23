@@ -8,7 +8,7 @@ app.use(cors())
 app.use(express.json())
 
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 8081
 
 const schemaData = mongoose.Schema({
     name : String,
@@ -36,9 +36,9 @@ app.post("/create", async (req, res)=>{
 //update data
 app.put("/update", async(req,res)=>{
     console.log(req.body)
-    const{id, ...rest}=req.body
+    const{_id, ...rest}=req.body
     console.log(rest)
-    const data = await userModel.updateOne({_id: req.body.id}, rest)
+    const data = await userModel.updateOne({_id: _id}, rest)
     res.send({success: true, message:"data updated successfully", data: data})
 
 })
