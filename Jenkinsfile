@@ -10,7 +10,6 @@ pipeline{
       steps{
         sh 'cd client/src'
         nodejs('nodejs 22.2.0'){
-        sh 'sudo apt install npm'
         sh 'npm test'
         }
       }
