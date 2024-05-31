@@ -15,7 +15,6 @@ pipeline{
     
     stage ("build"){
       steps{
-        cd 'react-devops/client/src'
         sh 'npm run build'
         }
     }
