@@ -9,18 +9,15 @@ pipeline{
     stage("test"){
       steps{
         cd 'react-devops/client/src'
-        nodejs('nodejs 22.2.0'){
         sh 'npm install'
         }
       }
     }
     stage ("build"){
       steps{
-       
-         nodejs('nodejs 22.2.0'){
+        cd 'react-devops/client/src'
         sh 'npm run build'
-         }
-      }
+        }
     }
   }
 }
