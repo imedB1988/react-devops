@@ -12,7 +12,7 @@ pipeline{
         sh 'npm install'
         }
       }
-    }
+    
     stage ("build"){
       steps{
         cd 'react-devops/client/src'
