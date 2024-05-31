@@ -16,7 +16,7 @@ pipeline{
     }
     stage ("build"){
       steps{
-        cd 'react-devops/client/src'
+       
          nodejs('nodejs 22.2.0'){
         sh 'npm run build'
          }
