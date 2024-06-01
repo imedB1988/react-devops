@@ -4,7 +4,7 @@ pipeline {
 	stages {
 		stage('Checkout') {
 			steps {
-				checkout "https://github.com/imedB1988/react-devops.git"
+				checkout scm
 			}
 		}
     stage('Client Tests') {
