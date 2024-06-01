@@ -15,6 +15,15 @@ pipeline {
 		}
 	}
 }
+		stage('Server Tests') {
+	steps {
+		dir('server') {
+			sh 'npm install'
+			sh 'npm install nodemon'
+			sh 'npm run dev'
+		}
+	}
+}
 
 	}
 }
