@@ -23,14 +23,13 @@ pipeline {
 		}
 	}
 }
-		stage('install and build docker') {
+		stage('Build Images') {
 	steps {
-		dir('server') {
-			sh 'apt install docker.io -y'
-			sh 'apt install docker-compose'
-		}
+		sh 'docker build -t 19880402/productivity-app:client-latest client'
+		sh 'docker build -t 19880402/productivity-app:server-latest server'
 	}
 }
+
 
 	}
 }
