@@ -25,8 +25,8 @@ pipeline {
 }
 		stage('Build Images') {
 	steps {
-		sh 'docker build -t 19880402/productivity-app:client-latest client'
-		sh 'docker build -t 19880402/productivity-app:server-latest server'
+		sh 'docker buildx build -t 19880402/productivity-app:client-latest client'
+		sh 'docker buildx build -t 19880402/productivity-app:server-latest server'
 	}
 }
 
