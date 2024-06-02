@@ -20,7 +20,14 @@ pipeline {
 		dir('server') {
 			sh 'npm install'
 			sh 'npm install nodemon'
-			sh 'npm run dev'
+		}
+	}
+}
+		stage('install and build docker') {
+	steps {
+		dir('server') {
+			sh 'apt install docker.io -y'
+			sh 'apt install docker-compose'
 		}
 	}
 }
