@@ -23,13 +23,26 @@ pipeline {
 		}
 	}
 }
-		stage('Build Images') {
+		stage('Build client Images') {
 	steps {
+		dir('client') {
 		sh 'docker build -t 19880402/productivity-app:client-latest client'
-		sh 'docker build -t 19880402/productivity-app:server-latest server'
+		
 	}
 }
 
 
 	}
+		stage('Build server Images') {
+	steps {
+		dir('client') {
+		sh 'docker build -t 19880402/productivity-app:server-latest server'
+		
+	}
+}
+
+
+	}
+		
+		
 }
