@@ -24,14 +24,14 @@ pipeline {
 }
 		stage('Build client Images') {
 	steps {
-		dir('client') {
+		dir('client/src') {
 		sh 'docker build . -t 19880402/productivity-app:client-latest'
 			}
 }
 	}
 		stage('Build server Images') {
 	steps {
-		dir('client') {
+		dir('server') {
 		sh 'docker build . -t 19880402/productivity-app:server-latest'
 	}
 }
