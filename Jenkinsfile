@@ -25,9 +25,7 @@ pipeline {
 		stage('Build client Images') {
 	steps {
 		dir('client/src') {
-		sh 'sudo usermod -a -G docker $USER'
-		sh 'systemctl restart docker'
-		sh 'docker build . --tag client'
+		 sh 'docker build . --tag client'
 			}
 }
 	}
