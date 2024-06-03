@@ -24,7 +24,7 @@ pipeline {
 }
 		stage('Build client Images') {
 	steps {
-		dir('client/src') {
+		dir('client') {
 		 sh 'docker build . --tag client'
 			}
 }
