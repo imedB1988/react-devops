@@ -38,14 +38,21 @@ pipeline {
 }
 	}
 
-		stage('docker ps --all') {
-	steps {
-		dir('server') {
-		 sh 'docker ps --all'
-		 
-			}
+		environment {     
+    		DOCKERHUB_CREDENTIALS= credentials('dockerhubjenkins')     
 }
-	}
+		stage('Push Image to Docker Hub') {         
+    steps{ 
+	    dir('client') {
+ sh 'sudo docker push client:latest'           
+echo 'Push client Image Completed'       
+    }     
+	        dir('server') {
+ sh 'sudo docker push server:latest'           
+echo 'Push server Image Completed'       
+    }
+}  
+		}
 			
 	}
 }
