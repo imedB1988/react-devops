@@ -31,6 +31,15 @@ pipeline {
 			}
 }
 	}
+
+		stage('Build server Images') {
+	steps {
+		dir('server') {
+		 sh 'docker build . --tag server'
+		 sh 'docker images --all '
+			}
+}
+	}
 			
 	}
 }
