@@ -1,8 +1,6 @@
 pipeline {
 	agent any
-	environment {     
-    DOCKERHUB_CREDENTIALS= credentials('dockerhubjenkins')     
-  }   
+	 
 	stages {
 		stage('Checkout') {
 			steps {
@@ -40,26 +38,18 @@ pipeline {
 			}
 }
 	}
-		 stage('Login to Docker Hub') {         
-      steps{                            
-	sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'                 
-	echo 'Login Completed'                
-      }           
-    }     
+		     
 
 		
-		stage('Push Image to Docker Hub') {         
-    steps{ 
-	    dir('client') {
- sh 'sudo docker push 19880402/client:latest'           
-echo 'Push client Image Completed'       
-    }     
-	        dir('server') {
- sh 'sudo docker push 19880402/server:latest'           
-echo 'Push server Image Completed'       
-    }
-}  
+		stage('Push Docker Image'){
+steps{
+script{
+withCredentials([string(credentialsId: '19880402', variable: 'Rr2024#mn98**')]) {
+sh ‘docker login -u 19880402 -p ${Rr2024#mn98**}’
+sh ‘docker push 19880402/javapp’
+}
+}
+}
 		}
-			
 	}
 }
