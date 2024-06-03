@@ -25,18 +25,12 @@ pipeline {
 		stage('Build client Images') {
 	steps {
 		dir('client/src') {
-		sh 'usermod -a -G docker $USER'
+		sh 'sudo usermod -a -G docker $USER'
 		sh 'systemctl restart docker'
 		sh 'docker build . --tag client'
 			}
 }
 	}
-		stage('Build server Images') {
-	steps {
-		dir('server') {
-		sh 'docker build . -t 19880402/productivity-app:server-latest'
-	}
-}
-	}		
+			
 	}
 }
