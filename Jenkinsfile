@@ -26,7 +26,7 @@ pipeline {
 		stage('Build client Images') {
 	steps {
 		dir('client') {
-		 sh 'docker build . --tag client'
+		 sh 'docker build . --tag 19880402/client'
 		 sh 'docker images --all '
 			}
 }
@@ -35,7 +35,7 @@ pipeline {
 		stage('Build server Images') {
 	steps {
 		dir('server') {
-		 sh 'docker build . --tag server'
+		 sh 'docker build . --tag 19880402/server'
 		 sh 'docker images --all '
 			}
 }
@@ -51,11 +51,11 @@ pipeline {
 		stage('Push Image to Docker Hub') {         
     steps{ 
 	    dir('client') {
- sh 'sudo docker push client:latest'           
+ sh 'sudo docker push 19880402/client:latest'           
 echo 'Push client Image Completed'       
     }     
 	        dir('server') {
- sh 'sudo docker push server:latest'           
+ sh 'sudo docker push 19880402/server:latest'           
 echo 'Push server Image Completed'       
     }
 }  
