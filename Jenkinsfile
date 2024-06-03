@@ -38,9 +38,12 @@ pipeline {
 }
 	}
 
-		environment {     
+		stage("declare docker credentials")
+		{
+			environment {     
     		DOCKERHUB_CREDENTIALS= credentials('dockerhubjenkins')     
-}
+			}
+		}
 		stage('Push Image to Docker Hub') {         
     steps{ 
 	    dir('client') {
