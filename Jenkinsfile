@@ -1,5 +1,8 @@
 pipeline {
 	agent any
+	environment {     
+    DOCKERHUB_CREDENTIALS= credentials('dockerhubjenkins')     
+  }   
 	stages {
 		stage('Checkout') {
 			steps {
