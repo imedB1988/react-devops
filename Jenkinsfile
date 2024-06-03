@@ -38,18 +38,19 @@ pipeline {
 			}
 }
 	}
+
+		stage('Login') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerJenkinsID', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+
+                   sh "docker login -u $USERNAME -p $PASSWORD"                  
+
+                }
+            }
+        }
 		     
 
 		
-		stage('Push Docker Image'){
-steps{
-script{
-withCredentials([string(credentialsId: '19880402', variable: 'Rr2024#mn98**')]) {
-sh ‘docker login -u 19880402 -p ${Rr2024#mn98**}’
-sh ‘docker push 19880402/javapp’
-}
-}
-}
-		}
+		
 	}
 }
