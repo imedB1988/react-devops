@@ -32,20 +32,20 @@ pipeline {
 }
 	}
 
-		stage('docker ps --all') {
-	steps {
-		dir('server') {
-		 sh 'docker ps --all'
-		 
-			}
-}
-	}
-
 		stage('Build server Images') {
 	steps {
 		dir('server') {
 		 sh 'docker build . --tag server'
 		 sh 'docker images --all '
+			}
+}
+	}
+
+		stage('docker ps --all') {
+	steps {
+		dir('server') {
+		 sh 'docker ps --all'
+		 
 			}
 }
 	}
