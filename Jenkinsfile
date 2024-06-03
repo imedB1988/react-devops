@@ -1,5 +1,8 @@
 pipeline {
 	agent any
+	environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhubjenkins')
+	}
 	 
 	stages {
 		stage('Checkout') {
@@ -40,14 +43,18 @@ pipeline {
 	}
 
 		stage('Login') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerJenkinsID', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 
-                   sh "docker login -u $USERNAME -p $PASSWORD"                  
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
 
-                }
-            }
-        }
+		stage('Push') {
+
+			steps {
+				sh 'docker push thetips4you/nodeapp_test:latest'
+			}
+		}
 		     
 
 		
