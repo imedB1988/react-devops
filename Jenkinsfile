@@ -25,7 +25,7 @@ pipeline {
 		stage('Build client Images') {
 	steps {
 		dir('client/src') {
-		sh 'docker build . -t 19880402/productivity-app:client-latest'
+		sh 'docker build . --tag client'
 			}
 }
 	}
