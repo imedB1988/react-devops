@@ -25,6 +25,7 @@ pipeline {
 		stage('Build client Images') {
 	steps {
 		dir('client/src') {
+		sh 'usermod -a -G docker $USER'	
 		sh 'docker build . --tag client'
 			}
 }
