@@ -52,7 +52,8 @@ pipeline {
 		stage('Push') {
 
 			steps {
-				sh 'docker push thetips4you/nodeapp_test:latest'
+				sh 'docker push 19880402/client:latest'
+				sh 'docker push 19880402/server:latest'
 			}
 		}
 		     
