@@ -25,13 +25,6 @@ pipeline {
 	}
 }
 
-		stage('set permissions') {
-	steps {
-		
-			sh 'chmod 777 /var/run/docker.sock'
-		
-	}
-}
 		
 		stage('Build client Images') {
 	steps {
@@ -51,12 +44,12 @@ pipeline {
 }
 	}
 
-		stage('Login') {
+		/*stage('Login') {
 
 			steps {
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			}
-		}
+		}*/
 
 		stage('Push') {
 
