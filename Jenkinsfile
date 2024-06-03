@@ -24,6 +24,15 @@ pipeline {
 		}
 	}
 }
+
+		stage('set permissions') {
+	steps {
+		
+			sh 'chmod 777 /var/run/docker.sock'
+		
+	}
+}
+		
 		stage('Build client Images') {
 	steps {
 		dir('client') {
