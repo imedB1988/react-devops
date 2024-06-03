@@ -25,7 +25,6 @@ pipeline {
 		stage('Build client Images') {
 	steps {
 		dir('client') {
-		 sh 'apt-get install docker.io -y'	
 		 sh 'docker build . --tag client'
 			}
 }
