@@ -10,7 +10,6 @@ pipeline {
     stage('Client Tests') {
 	steps {
 		dir('client') {
-			sh 'npm install'
 			sh 'npm run build'
 		}
 	}
@@ -18,7 +17,6 @@ pipeline {
 		stage('Server Tests') {
 	steps {
 		dir('server') {
-			sh 'npm install'
 			sh 'npm install nodemon'
 		}
 	}
