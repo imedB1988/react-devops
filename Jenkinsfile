@@ -62,7 +62,6 @@ pipeline {
 		stage('docker-compose mongo') {
 
 			steps {
-				sh 'apt-get install docker-compose'
 				sh 'docker-compose up -d'
 			}
 		}
