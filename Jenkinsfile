@@ -59,14 +59,7 @@ pipeline {
 			}
 		}
 
-		stage('docker-compose-mongo') {
-
-			steps {
-				
-				sh 'docker-compose up -d'
-				
-			}
-		}
+		
 		     
 
 		
