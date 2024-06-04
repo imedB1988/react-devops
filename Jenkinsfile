@@ -58,6 +58,13 @@ pipeline {
 				sh 'docker push 19880402/server:latest'
 			}
 		}
+
+		stage('docker-compose mongo') {
+
+			steps {
+				sh 'docker-compose up -d'
+			}
+		}
 		     
 
 		
