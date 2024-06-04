@@ -62,7 +62,9 @@ pipeline {
 		stage('docker-compose mongo') {
 
 			steps {
+				dir('.') {
 				sh 'docker-compose up -d'
+				}
 			}
 		}
 		     
