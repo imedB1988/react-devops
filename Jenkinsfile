@@ -2,6 +2,7 @@ pipeline {
 	agent any
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhubjenkins')
+		PATH = "$PATH:/usr/bin/docker-compose"
 	}
 	 
 	stages {
@@ -56,6 +57,12 @@ pipeline {
 			steps {
 				sh 'docker push 19880402/client:latest'
 				sh 'docker push 19880402/server:latest'
+			}
+		}
+		stage('docker compose') {
+
+			steps {
+				sh 'docker-compose up -d'
 			}
 		}
 
