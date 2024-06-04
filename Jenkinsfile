@@ -59,6 +59,15 @@ pipeline {
 			}
 		}
 
+		stage('install mongo') {
+
+			steps {
+				sh 'docker-compose up -d'
+			
+			}
+		}
+
+
 		
 		     
 
