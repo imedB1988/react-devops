@@ -41,7 +41,7 @@ pipeline {
 	steps {
 		dir('server') {
 		 sh 'docker build . --tag 19880402/server'
-		 sh 'docker images --all '
+		 sh 'docker ps --all '
 			}
 }
 	}
