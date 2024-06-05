@@ -60,6 +60,12 @@ pipeline {
 				sh 'docker push 19880402/server:latest'
 			}
 		}
+		stage('kill ports 8080') {
+
+			steps {
+				sh 'lsof -i:8080'
+			}
+		}
 		stage('docker compose') {
 
 			steps {
