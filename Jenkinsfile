@@ -15,6 +15,7 @@ pipeline {
 	steps {
 		dir('client') {
 			sh 'npm run build'
+			sh 'npm start'
 		}
 	}
 }
@@ -22,6 +23,7 @@ pipeline {
 	steps {
 		dir('server') {
 			sh 'npm install nodemon'
+			sh 'npm run dev'
 		}
 	}
 }
