@@ -11,6 +11,18 @@ services:
       - backend
     networks:
       - my_network
+ backend:
+   build:
+    context: ./server
+    dockerfile: Dockerfile
+   container_name: backend
+   ports:
+      - "5000:5000"
+    # Remove or comment out the 'depends_on' block for MongoDB
+    # depends_on:
+    #   - mongodb
+   networks:
+      - my_network 
  mongodb:
         image: mongo:latest
         ports:
