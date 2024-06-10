@@ -1,12 +1,17 @@
 version: '3.8'
 services:
-  app:
-      build: .
+  client:
+      build: ./client
       restart: always
+      dockerfile: ./dockerfile
       volumes:
         - ./:/app
       ports:
-        - 5000:5000
+        - 3000:3000
+      depends_on:
+      - mongodb  
+      networks:
+      - node-network
   mongodb:
     image: mongo:latest
     ports:
@@ -16,18 +21,13 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=password
     volumes:
       - mongo-data:/data/db
-
-  mongo-express:
-    image: mongo-express:latest
-    restart: always
-    ports:
-      - "8081:8081"
-    environment:
-      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
-      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
-      - ME_CONFIG_MONGODB_SERVER=mongodb
-
+    networks:
+      - node-network
 # Define named volumes
 volumes:
   mongo-data:
     driver: local
+
+networks:
+  node-network:
+    driver: bridge
