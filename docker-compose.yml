@@ -5,7 +5,7 @@ services:
       restart: always
       dockerfile: ./dockerfile
       volumes:
-        - ./:/app
+        - ./:/client
       ports:
         - 3000:3000
       depends_on:
