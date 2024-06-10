@@ -3,7 +3,7 @@ services:
   client:
       build: ./client
       restart: always
-      dockerfile: ./dockerfile
+      dockerfile: dockerfile
       volumes:
         - ./:/client
       ports:
