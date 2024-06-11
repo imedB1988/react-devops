@@ -4,7 +4,8 @@ services:
       build: ./client
       restart: always
       volumes:
-        - ./:/client
+        - ./src:/usr/src/app
+        - /usr/src/app/node_modules
       ports:
         - 3000:3000
       depends_on:
@@ -15,7 +16,8 @@ services:
       build: ./server
       restart: always
       volumes:
-        - ./:/server
+        - ./src:/usr/src/app
+        - /usr/src/app/node_modules
       ports:
         - 8000:8000
       depends_on:
